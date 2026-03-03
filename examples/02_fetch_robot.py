@@ -23,7 +23,7 @@ def print_env_info(env):
     obs, info = env.reset()
 
     print("=" * 60)
-    print("ENVIRONMENT: FetchPickAndPlace-v3")
+    print("ENVIRONMENT: FetchPickAndPlace-v4")
     print("=" * 60)
     print()
     print("Observation space (what the robot sees):")
@@ -168,11 +168,11 @@ def run_scripted_controller(env, n_episodes=3):
 
 def main():
     # Create environment with rendering
-    print("Creating FetchPickAndPlace-v3 environment...")
+    print("Creating FetchPickAndPlace-v4 environment...")
     print("(A MuJoCo viewer window will open)")
     print()
 
-    env = gym.make("FetchPickAndPlace-v3", render_mode="human", max_episode_steps=100)
+    env = gym.make("FetchPickAndPlace-v4", render_mode="human", max_episode_steps=100)
 
     print_env_info(env)
 
