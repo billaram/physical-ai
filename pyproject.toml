@@ -1,0 +1,25 @@
+[project]
+name = "physical-ai"
+version = "0.1.0"
+description = "Physical AI hello world — from simulation to VLA models"
+requires-python = ">=3.10"
+dependencies = [
+    "mujoco>=3.0",
+    "gymnasium>=1.0",
+    "gymnasium-robotics>=1.3",
+]
+
+[project.optional-dependencies]
+lerobot = [
+    "lerobot[pusht]>=0.4",
+]
+vla = [
+    "lerobot[smolvla]>=0.4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["examples"]
