@@ -150,14 +150,25 @@ def main():
     phases = rng.uniform(0, 2 * np.pi, size=model.nu)
     amplitudes = rng.uniform(0.3, 0.8, size=model.nu)
 
-    with mujoco.viewer.launch_passive(model, data) as viewer:
+    # Set up a key callback so the arm moves with sinusoidal targets
+    # during simulation (the Simulate GUI handles its own physics loop)
+    import threading
+
+    def control_loop():
+        """Background thread that updates control targets."""
         start = time.time()
-        while viewer.is_running():
+        while True:
             t = time.time() - start
-            # Smooth sinusoidal joint targets
             data.ctrl[:] = amplitudes * np.sin(2 * np.pi * frequencies * t + phases)
-            mujoco.mj_step(model, data)
-            viewer.sync()
+            time.sleep(0.01)
+
+    controller = threading.Thread(target=control_loop, daemon=True)
+    controller.start()
+
+    # launch() works on macOS without mjpython (unlike launch_passive)
+    # It opens the full Simulate GUI — press Space to play/pause physics
+    print("\n  TIP: Press SPACE in the viewer to start/stop physics simulation.")
+    mujoco.viewer.launch(model, data)
 
 
 if __name__ == "__main__":
