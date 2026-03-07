@@ -463,6 +463,206 @@ Skills: Full-stack Physical AI: perception -> planning -> control
 
 ---
 
+## 10. Courses, Lectures & Video Learning Resources
+
+### 10.1 University Courses (MOOCs & Lecture Recordings)
+
+#### MIT Courses
+
+| Course | Instructor | Topics | Access |
+|--------|-----------|--------|--------|
+| **6.4210 Robotic Manipulation** | Russ Tedrake | Perception, planning, and control for manipulation in unstructured environments | [Course Site](https://manipulation.csail.mit.edu) / [MIT OCW](https://ocw.mit.edu/courses/6-4210-robotic-manipulation-fall-2022/) |
+| **6.832 Underactuated Robotics** | Russ Tedrake | Nonlinear dynamics, walkers/swimmers/flyers, motion planning, RL, optimal control | [Course Site](https://underactuated.csail.mit.edu) / [MIT OCW](https://ocw.mit.edu/courses/6-832-underactuated-robotics-spring-2009/) / [edX](https://github.com/RussTedrake/underactuated) |
+| **2.12 Introduction to Robotics** | -- | Kinematics, dynamics, motion planning, control design, sensors, actuators | [MIT OCW](https://ocw.mit.edu/courses/2-12-introduction-to-robotics-fall-2005/) |
+| **16.412J Cognitive Robotics** | -- | Autonomous planning and decision-making for robots | [MIT OCW](https://ocw.mit.edu/courses/16-412j-cognitive-robotics-spring-2016/) |
+
+**Russ Tedrake's courses are the single best free resource for Physical AI.** Both the Robotic Manipulation and Underactuated Robotics courses have full online textbooks with embedded Python notebooks (using Drake simulator), lecture videos on YouTube, and are continuously updated.
+
+#### Stanford Courses
+
+| Course | Instructor(s) | Topics | Access |
+|--------|--------------|--------|--------|
+| **CS223A Introduction to Robotics** | Oussama Khatib | Kinematics, Jacobians, dynamics, motion planning, force control | [Stanford SEE](https://see.stanford.edu/course/cs223a) / [YouTube Lectures](https://www.classcentral.com/course/youtube-lecture-collection-introduction-to-robotics-54773) |
+| **CS237B Principles of Robot Autonomy II** | Jeannette Bohg, Marco Pavone, Dorsa Sadigh | Autonomous robot skills, physical interaction, human-robot interaction | [Course Site](http://web.stanford.edu/class/cs237b/) / [Stanford Online](https://online.stanford.edu/courses/cs237b-principles-robot-autonomy-ii) |
+| **CS331B Representation Learning in Computer Vision** | Chelsea Finn | Sim-to-real, imitation learning, RL for navigation and manipulation | [Course Site](https://web.stanford.edu/class/cs331b/) |
+| **CS231n Deep Learning for Computer Vision** | -- | CNNs, object detection, segmentation, generative models | [Course Site](https://cs231n.stanford.edu/) / [Notes](https://cs231n.github.io/) |
+| **CS236 Deep Generative Models** | -- | VAEs, GANs, diffusion models, flow models, score-based models | [Course Site](https://deepgenerativemodels.github.io/) / [Stanford Online](https://online.stanford.edu/courses/xcs236-deep-generative-models) |
+| **Robotics & Autonomous Systems Certificate** | Various | Full graduate certificate covering robot autonomy stack | [Stanford Online](https://online.stanford.edu/programs/robotics-and-autonomous-systems-graduate-certificate) |
+
+Stanford also provides [free AI graduate course lecture recordings](https://online.stanford.edu/ai-graduate-course-lectures) across many AI topics.
+
+#### UC Berkeley Courses
+
+| Course | Instructor | Topics | Access |
+|--------|-----------|--------|--------|
+| **CS 285 Deep Reinforcement Learning** | Sergey Levine | Policy gradients, actor-critic, model-based RL, offline RL, goal-conditioned RL | [Course Site](https://rail.eecs.berkeley.edu/deeprlcourse/) / [YouTube Playlist](https://www.youtube.com/playlist?list=PL_iWQOsE6TfX7MaC6C3HcdOf1g337dlC9) |
+| **CS 287 Advanced Robotics** | Pieter Abbeel | MDPs, LQR, trajectory optimization, RL for robotics | [Course Site](https://people.eecs.berkeley.edu/~pabbeel/cs287-fa19/) |
+| **Deep RL Bootcamp** | Abbeel, Levine, et al. | Intensive bootcamp on all aspects of deep RL | [Lectures & Slides](https://sites.google.com/view/deep-rl-bootcamp/lectures) |
+
+**CS 285 (Sergey Levine) is the gold standard for deep reinforcement learning.** Fall 2023 lectures are on YouTube. Levine is one of the most influential researchers in robot learning (RT-1, RT-2, Octo, Bridge Data).
+
+#### CMU Courses
+
+| Course | Focus | Access |
+|--------|-------|--------|
+| **16-831 Introduction to Robot Learning** | ML/DL for robotics, RL, imitation learning, visual learning | [Course Site](https://16-831-s24.github.io/) |
+| **CMU Robotics Academy** | Beginner to intermediate robotics curriculum with virtual robots | [Course Site](https://www.cmu.edu/roboticsacademy/) / [Live Online Training](https://www.cmu.edu/roboticsacademy/Training/Online/index.html) |
+| **Robotics Institute Courses** | Full catalog of robotics courses | [Course Catalog](https://www.ri.cmu.edu/education/courses/) |
+
+#### Other University Courses
+
+| Course | University | Topics | Access |
+|--------|-----------|--------|--------|
+| **Autonomous Mobile Robots** | ETH Zurich | Localization, perception, motion planning, control | [edX](https://www.edx.org/learn/robotics) |
+| **Programming for Robotics - ROS** | ETH Zurich (RSL) | ROS2, simulation, sensor integration, control algorithms | [Course Site](https://rsl.ethz.ch/education-students/lectures/ros.html) |
+| **Modern Robotics** (Specialization) | Northwestern (Kevin Lynch) | Kinematics, dynamics, control, planning, manipulation | [Coursera](https://www.coursera.org/courses?query=robotics) + free textbook |
+| **AI for Robotics** | Stanford/Udacity (Sebastian Thrun) | Localization, Kalman filters, particle filters, PID control, SLAM | [Udacity](https://www.classcentral.com/course/udacity-artificial-intelligence-for-robotics-319) |
+| **Introduction to Robotics** | Columbia | Robot mechanisms, kinematics, control | [edX](https://www.edx.org/learn/robotics) (free to audit) |
+
+---
+
+### 10.2 Simulators for Physical AI
+
+#### Simulator Overview & Comparison
+
+| Simulator | Developer | Best For | Language | GPU Parallel | Free? |
+|-----------|----------|----------|----------|-------------|-------|
+| **NVIDIA Isaac Sim / Isaac Lab** | NVIDIA | Production-scale robot RL, locomotion, manipulation | Python | Native (PhysX) | Yes |
+| **MuJoCo** | Google DeepMind | Research RL, contact-rich manipulation, locomotion | C++ / Python | Yes (MJX/JAX) | Yes (open-source since 2022) |
+| **PyBullet** | Erwin Coumans | Quick prototyping, beginner-friendly, URDF-based | Python | No | Yes |
+| **Gazebo** | Open Robotics | ROS2 integration, full robot stacks, sensor simulation | C++ | No | Yes |
+| **Drake** | MIT/TRI | Model-based control, optimization, formal verification | C++ / Python | No | Yes |
+| **Gymnasium-Robotics** | Farama Foundation | Standard RL benchmarks, MuJoCo-based robot envs | Python | No | Yes |
+| **ManiSkill 3** | UCSD (Hao Su) | Manipulation research, GPU-accelerated | Python | Yes (SAPIEN) | Yes |
+| **Genesis** | Community | Multi-physics, emerging framework | Python | Yes | Yes |
+
+#### NVIDIA Isaac Sim & Isaac Lab
+
+The flagship simulator for Physical AI from NVIDIA. Built on Omniverse with PhysX for physics and RTX for rendering.
+
+**Learning Resources:**
+- [Getting Started with Isaac Sim](https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-sim/latest/index.html) -- official beginner guide
+- [Simulating Your First Robot in Isaac Sim](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-OV-27+V1) -- free NVIDIA DLI course
+- [Introduction to Robotic Simulations in Isaac Sim](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-OV-03+V1) -- free NVIDIA DLI course
+- [NVIDIA Isaac for Accelerated Robotics](https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-OV-05+V1) -- comprehensive course
+- [Reinforcement Learning for Robots with Isaac Lab](https://docs.nvidia.com/learning/physical-ai/getting-started-with-isaac-lab/latest/train-your-first-robot-with-isaac-lab/01-what-is-reinforcement-learning.html) -- RL training tutorial
+- [NVIDIA Robotics Fundamentals Learning Path](https://www.nvidia.com/en-us/learn/learning-path/robotics/) -- curated free course sequence
+- [Digital Twins for Physical AI Learning Path](https://www.nvidia.com/en-us/learn/learning-path/digital-twins/) -- Omniverse + digital twin courses
+- [Isaac Lab GitHub](https://github.com/isaac-sim/IsaacLab) -- open-source framework
+
+#### MuJoCo
+
+The research standard for robotics RL, originally by Emo Todorov, now maintained by Google DeepMind. Open-sourced in 2022.
+
+**Learning Resources:**
+- [MuJoCo Documentation](https://mujoco.readthedocs.io/) -- official docs
+- [MuJoCo Playground](https://playground.mujoco.org/) -- browser-based interactive environment (train policies in minutes on one GPU)
+- [Quick Start Robotics and RL with MuJoCo](https://towardsai.net/p/artificial-intelligence/quick-start-robotics-and-reinforcement-learning-with-mujoco) -- beginner tutorial
+- [Mastering RL: PPO in MuJoCo](https://medium.com/@itsrarjun/mastering-reinforcement-learning-ppo-in-mujoco-for-robotics-simulation-e320349ee7f9) -- practical PPO tutorial
+- [Mastering Locomotion in MuJoCo](https://medium.com/@itsrarjun/mastering-locomotion-in-mujoco-a-practical-guide-for-robotics-and-reinforcement-learning-732559f9ecb4) -- locomotion-focused guide
+- [Gymnasium MuJoCo Environments](https://gymnasium.farama.org/environments/mujoco/) -- standard RL benchmarks (Ant, Humanoid, etc.)
+- [MuJoCo GitHub](https://github.com/google-deepmind/mujoco)
+
+#### PyBullet
+
+Most beginner-friendly physics simulator. Pure Python, pip-installable, good for quick prototyping.
+
+**Learning Resources:**
+- [Robotics with Python for Beginners](https://towardsdatascience.com/robotics-with-python-for-beginners/) -- Towards Data Science guide
+- [Introduction to Robotics Simulation with PyBullet](https://www.postnetwork.co/introduction-to-robotics-simulation-with-pybullet/) -- step-by-step course
+- [PyBullet Robotics Tutorial (GitHub)](https://github.com/adityasagi/robotics_tutorial) -- introductory notebook-based tutorial
+- Install: `pip install pybullet`
+
+#### Drake
+
+MIT/TRI's toolbox for model-based robot design, analysis, and control. Heavy emphasis on optimization.
+
+**Learning Resources:**
+- [Drake Official Site](https://drake.mit.edu/) -- documentation and tutorials
+- [Drake Beginner Tutorial](https://drake.guzhaoyuan.com/to-get-started) -- community-written getting started guide
+- [Drake in Underactuated Robotics](https://underactuated.mit.edu/drake.html) -- deeply integrated with Russ Tedrake's course
+- [Drake in Robotic Manipulation](https://manipulation.csail.mit.edu/drake.html) -- heavily used in the manipulation course
+- Install: `pip install drake`
+
+#### Gazebo + ROS2
+
+Industry-standard for full robot system simulation, especially with ROS2.
+
+**Learning Resources:**
+- [Gazebo Tutorials](https://classic.gazebosim.org/tutorials) -- official tutorial collection
+- [ROS 2 for Beginners (Udemy)](https://www.udemy.com/course/ros2-for-beginners/) -- comprehensive Udemy course
+- [ROS2 Basics Course (The Construct)](https://www.theconstruct.ai/robotigniteacademy_learnros/ros-courses-library/ros2-basics-course/) -- browser-based ROS2 learning
+- [ETH Zurich ROS Course](https://rsl.ethz.ch/education-students/lectures/ros.html) -- university-level ROS2 course
+- [ROS2 Tutorials (Robotics Backend)](https://roboticsbackend.com/category/ros2/) -- community tutorials
+
+#### Gymnasium-Robotics
+
+Standard RL benchmarks built on MuJoCo, maintained by Farama Foundation.
+
+**Learning Resources:**
+- [Gymnasium-Robotics Docs](https://robotics.farama.org/index.html) -- Fetch manipulation + Shadow Hand environments
+- [RL with Gymnasium (DataCamp)](https://www.datacamp.com/tutorial/reinforcement-learning-with-gymnasium) -- practical guide
+- [Gymnasium-Robotics GitHub](https://github.com/Farama-Foundation/Gymnasium-Robotics)
+
+---
+
+### 10.3 YouTube Series & Video Courses
+
+#### Deep RL & Robot Learning Lectures
+
+| Series | Creator | Content | Link |
+|--------|---------|---------|------|
+| **CS 285 Deep RL** | Sergey Levine (UC Berkeley) | Full semester of deep RL lectures, essential for Physical AI | [YouTube Playlist](https://www.youtube.com/playlist?list=PL_iWQOsE6TfX7MaC6C3HcdOf1g337dlC9) |
+| **Deep RL Bootcamp** | Abbeel, Levine, et al. | Intensive 2-day bootcamp, all lectures recorded | [Lectures Site](https://sites.google.com/view/deep-rl-bootcamp/lectures) |
+| **Stanford CS223A** | Oussama Khatib | Full robotics fundamentals course | [YouTube / Stanford SEE](https://see.stanford.edu/course/cs223a) |
+| **DeepMind Podcast: AI, Robot** | Google DeepMind | Research talks on embodied AI and robotics | [DeepMind Blog](https://deepmind.google/discover/the-podcast/ai-robot/) |
+
+#### Research & Explainer Channels
+
+| Channel | Focus | Best For |
+|---------|-------|----------|
+| **Two Minute Papers** | Concise AI paper summaries including robotics | Staying current with latest research |
+| **Yannic Kilcher** | In-depth ML paper breakdowns | Understanding RL and robotics papers |
+| **Lex Fridman Podcast** | Long-form interviews with robotics/AI researchers | Broader context, researcher perspectives |
+| **DeepLearning.AI** (Andrew Ng) | Organized ML/DL courses | Foundational ML understanding |
+| **Sentdex** | Python for AI, RL tutorials | Hands-on coding with RL |
+| **James Bruton** | Robot building, hardware projects | Physical robot construction |
+| **Skyentific** | Robot arm control + Isaac Sim | [Isaac Sim robot control demo](https://www.classcentral.com/course/youtube-simulation-took-control-of-my-robot-arm-nvidia-isaac-sim-425759) |
+
+---
+
+### 10.4 Hands-On Practical Resources
+
+#### Getting Started Today (Free, No Hardware Needed)
+
+1. **MuJoCo + Gymnasium**: `pip install mujoco gymnasium` -- run standard robotics RL environments in minutes
+2. **NVIDIA Isaac Lab**: [Free DLI courses](https://www.nvidia.com/en-us/learn/learning-path/robotics/) -- GPU-accelerated robot learning
+3. **Drake + Manipulation Course**: Follow [Russ Tedrake's course](https://manipulation.csail.mit.edu) with embedded notebooks
+4. **Underactuated Robotics**: Follow [the course](https://underactuated.csail.mit.edu) with Drake notebooks
+5. **LeRobot in Simulation**: Run [LeRobot](https://github.com/huggingface/lerobot) simulation examples before buying hardware
+6. **MuJoCo Playground**: [Browser-based environment](https://playground.mujoco.org/) for quick experimentation
+
+#### VLA & Foundation Model Resources
+
+- [Awesome VLA Learning Guide](https://github.com/Jiaaqiliu/Awesome-VLA-Learning-Guide) -- systematic beginner introduction to Vision-Language-Action models
+- [Awesome Embodied VLA/VA/VLN](https://github.com/jonyzhang2023/awesome-embodied-vla-va-vln) -- curated research list for embodied AI
+- [Fine-Tuning VLA Models Tutorial](https://www.digitalocean.com/community/tutorials/vision-language-action-finetuning-robotics) -- hands-on VLA fine-tuning guide
+- [VLA for Robots (LearnOpenCV)](https://learnopencv.com/vision-language-action-models-lerobot-policy/) -- practical guide with LeRobot
+- [Awesome Humanoid Learning](https://github.com/jonyzhang2023/awesome-humanoid-learning) -- resources for humanoid robot learning
+- [DEEP Robotics Physical AI 101](https://www.deeprobotics.us/news/physical-ai-101-the-ultimate-guide-to-mastering-reinforcement-learning-with-the-deep-robotics-lite3/) -- PPO + domain randomization + sim-to-real workflow
+
+#### Curated Lists & Aggregators
+
+- [Class Central: 300 Free Robotics Courses](https://www.classcentral.com/report/robotics-free-online-courses/) -- comprehensive free course list
+- [Class Central: 30+ Embodied AI Courses](https://www.classcentral.com/subject/embodied-ai) -- embodied AI specific
+- [Class Central: 8 Best Robotics Courses for 2026](https://www.classcentral.com/report/best-robotics-courses/) -- top picks with reviews
+- [CS Video Courses (GitHub)](https://github.com/Developer-Y/cs-video-courses) -- massive list of CS lecture recordings
+- [Best-of Robot Simulators (GitHub)](https://github.com/knmcguire/best-of-robot-simulators) -- weekly-updated simulator ranking
+- [Sim2Real Guide](https://www.reinforcementlearningpath.com/sim2real) -- reducing the reality gap in robotics
+- [Robotics Knowledgebase: Choosing a Simulator](https://roboticsknowledgebase.com/wiki/robotics-project-guide/choose-a-sim/) -- comparison guide for picking the right sim
+
+---
+
 ## Quick Start Checklist
 
 If you want to get hands-on TODAY:
